@@ -1,0 +1,33 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Festive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Festive&family=Lobster&display=swap');
+body {
+	/*font-family: 'Festive', cursive;*/
+	font-family: 'Lobster', cursive;
+	font_size: 1en;
+	font-weight: 400;
+}
+h1 {
+	color: #66bbff;
+}
+img {
+	width: 257px;
+	height: 257px;
+}
+.botao1{
+	padding: 10px 10px 10px 10px;
+	background-color: #66bbff;
+	text-decoration: none;
+	color: #fff;
+	font-size: 1.2em;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.campo1 {
+	width: 300px;
+	border: 1px solid #66bbff;
+}
+.campo2 {
+	width: 100px;
+	border: 1px solid #66bbff;
+}
