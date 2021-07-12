@@ -17,15 +17,19 @@ document.getElementById("adicionarContato").onclick = function Validar() {
 	let nome = frmContato.nome.value;
 	let telefone = frmContato.telefone.value;
 	let email = frmContato.email.value;
-	
-	if(nome == "") {
+
+	if (nome == "") {
+		document.getElementsByName("nome")[0].style.border = "2px solid #FF0000";
 		frmContato.nome.focus();
 		return false;
-	} else if( telefone == "") {
+	} else if (telefone == "") {
+		document.getElementsByName("telefone")[0].style.border = "2px solid #FF0000";
 		frmContato.telefone.focus();
 		return false;
 	} else {
+		document.getElementsByName("telefone")[0].style.border = "1px solid #66bbff";
+		document.getElementsByName("nome")[0].style.border = "1px solid #66bbff";
 		document.forms['frmContato'].submit();
 	}
-	
+
 }
