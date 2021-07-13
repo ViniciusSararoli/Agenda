@@ -1,13 +1,17 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.ContatoDAO;
+
 import model.Contato;
+import model.ContatoDAO;
 
 @WebServlet(urlPatterns = { "/Controller", "/main", "/insert" })
 public class Controller extends HttpServlet {
@@ -35,12 +39,24 @@ public class Controller extends HttpServlet {
 
 	protected void contatos(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.sendRedirect("agenda.jsp");
+		// response.sendRedirect("agenda.jsp");
+		ArrayList<Contato> lista = dao.listarContatos();
+
+		/*
+		 * for (int i = 0; i < lista.size(); i++) {
+		 * System.out.println(lista.get(i).getIdcontato());
+		 * System.out.println(lista.get(i).getNome());
+		 * System.out.println(lista.get(i).getTelefone());
+		 * System.out.println(lista.get(i).getEmail()); }
+		 */
+		request.setAttribute("contatos", lista);
+		RequestDispatcher rd = request.getRequestDispatcher("agenda.jsp");
+		rd.forward(request, response);
 	}
 
 	protected void novoContato(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.sendRedirect("novo.html");
+		//response.sendRedirect("novo.html");
 
 		/*
 		 * System.out.println(request.getParameter("nome"));
@@ -51,6 +67,7 @@ public class Controller extends HttpServlet {
 		contato.setTelefone(request.getParameter("telefone"));
 		contato.setEmail(request.getParameter("email"));
 		dao.inserirContatos(contato);
+		response.sendRedirect("main");
 	}
 
 }
