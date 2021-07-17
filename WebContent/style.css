@@ -8,9 +8,8 @@
 	;
 
 body {
-	/*font-family: 'Festive', cursive;*/
 	font-family: 'Lobster', cursive;
-	font_size: 1en;
+	font-size: 1em;
 	font-weight: 400;
 }
 
@@ -18,48 +17,63 @@ h1 {
 	color: #66bbff;
 }
 
-img {
-	width: 257px;
-	height: 257px;
-}
-
-.botao1 {
-	padding: 10px 10px 10px 10px;
-	background-color: #66bbff;
+.Botao1 {
 	text-decoration: none;
+	background-color: #66bbff;
+	padding: 5px 10px 5px 10px;
 	color: #fff;
 	font-size: 1.2em;
-	border-radius: 3px;
+	font-weight: 700;
+	border-radius: 5px;
+	border: 0;
 	cursor: pointer;
-	margin: 10px;
 }
 
-.campo1 {
-	width: 300px;
+.Botao2 {
+	text-decoration: none;
+	background-color: #d51213;
+	padding: 5px 10px 5px 10px;
+	color: #fff;
+	font-size: 1.2em;
+	font-weight: 700;
+	border-radius: 5px;
+}
+
+.Caixa1 {
+	width: 320px;
+	padding: 5px;
+	margin-bottom: 10px;
 	border: 1px solid #66bbff;
+	border-radius: 5px;
 }
 
-.campo2 {
-	width: 100px;
+.Caixa2 {
+	padding: 5px;
+	margin-bottom: 10px;
 	border: 1px solid #66bbff;
+	border-radius: 5px;
 }
 
-.tabelaContatos {
+#caixa3 {
+	padding: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #ff0000;
+}
+
+#tabela {
 	margin-top: 30px;
 	border-collapse: collapse;
 }
 
-.tabelaContatos th {
-	border: 2px solid #66bbff;
+#tabela th {
+	border: 1px solid #ddd;
 	padding: 10px;
-	background: #66bbff;
+	text-align: left;
+	background-color: #66bbff;
 	color: #fff;
-	text-align: center;
 }
 
-.tabelaContatos td {
-	border: 1px solid #66bbff;
+#tabela td {
+	border: 1px solid #ddd;
 	padding: 10px;
-	color: #000;
-	text-align: center;
 }
