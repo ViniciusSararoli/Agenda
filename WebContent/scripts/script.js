@@ -1,35 +1,15 @@
-document.getElementById("adicionarContato").onclick = function Validar() {
-	/*var nome = document.getElementsByName("nome")[0];
-	var telefone = document.getElementsByName("telefone")[0];
-	if(nome.value == "") {
-		nome.style.border = "2px solid #FF0000";
-		nome.focus();
-		return false;
-	} else if(telefone.value == "") {
-		telefone.style.border = "2px solid #FF0000";
-		telefone.focus();
-		return false;
+function validar() {
+	let nome = frmContato.nome.value
+	let fone = frmContato.fone.value
+	if (nome === "") {
+		alert('Preencha o campo Nome')
+		frmContato.nome.focus()
+		return false
+	} else if (fone === "") {
+		alert('Preencha o campo Fone')
+		frmContato.fone.focus()
+		return false
 	} else {
-		telefone.style.border = "1px solid #66bbff";
-		nome.style.border = "1px solid #66bbff";
-		document.getElementsByName("frmContato")[0].submit();
-	}*/
-	let nome = frmContato.nome.value;
-	let telefone = frmContato.telefone.value;
-	let email = frmContato.email.value;
-
-	if (nome == "") {
-		document.getElementsByName("nome")[0].style.border = "2px solid #FF0000";
-		frmContato.nome.focus();
-		return false;
-	} else if (telefone == "") {
-		document.getElementsByName("telefone")[0].style.border = "2px solid #FF0000";
-		frmContato.telefone.focus();
-		return false;
-	} else {
-		document.getElementsByName("telefone")[0].style.border = "1px solid #66bbff";
-		document.getElementsByName("nome")[0].style.border = "1px solid #66bbff";
-		document.forms['frmContato'].submit();
+		document.forms["frmContato"].submit()
 	}
-
 }
