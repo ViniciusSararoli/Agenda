@@ -90,7 +90,7 @@ public class ContatoDAO {
 	}
 
 	public void alterarContato(Contato contato) {
-		String update = "update contatos set nome=?,fone=?,email=? where idcon=?";
+		String update = "update contatos set nome=?,telefone=?,email=? where idcontato=?";
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(update);
@@ -103,6 +103,20 @@ public class ContatoDAO {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+	}
+	
+	public void excluirContato(Contato contato) {
+		try {
+			String excluir = "DELETE FROM contatos WHERE idcontato=?";
+			Connection con = conectar();
+			PreparedStatement pst = con.prepareStatement(excluir);
+			pst.setString(1, contato.getIdcontato());
+			pst.executeUpdate();
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	
 	}
 
 }

@@ -40,7 +40,7 @@
 				<td>
 					<a href="select?idcontato=<%=lista.get(i).getIdcontato()%>"
 					class="Botao1">Editar</a>
-					<a href="javascript: confirmar(<%=lista.get(i).getIdcontato()%>)"
+					<a href="delete?idcontato=<%=lista.get(i).getIdcontato()%>"
 					class="Botao2">Excluir</a>
 				</td>
 			</tr>
@@ -49,6 +49,6 @@
 			%>
 		</tbody>
 	</table>
-	<script src="scripts/confirmador.js"></script>
+	<script src="scripts/script.js"></script>
 </body>
 </html>

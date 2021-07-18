@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Contato;
 import model.ContatoDAO;
 
-@WebServlet(urlPatterns = { "/Controller", "/main", "/insert", "/select", "/update" })
+@WebServlet(urlPatterns = { "/Controller", "/main", "/insert", "/select", "/update", "/delete" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ContatoDAO dao = new ContatoDAO();
@@ -27,17 +27,32 @@ public class Controller extends HttpServlet {
 			throws ServletException, IOException {
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
 		String action = request.getServletPath();
-		// System.out.println(action);
-		if (action.equals("/main")) {
+		 System.out.println(action);
+
+		switch (action) {
+		case "/main":
 			contatos(request, response);
-		} else if (action.equals("/insert")) {
-			adicionarContato(request, response);
-		} else if (action.equals("/select")) {
+			break;
+		case "/insert":
+			// adicionarContato(request, response);
+			contato.setNome(request.getParameter("nome"));
+			contato.setTelefone(request.getParameter("telefone"));
+			contato.setEmail(request.getParameter("email"));
+			dao.inserirContatos(contato);
+			response.sendRedirect("main");
+			break;
+		case "/select":
 			listarContato(request, response);
-		} else if (action.equals("/update")) {
+			break;
+		case "/update":
 			editarContato(request, response);
-		} else {
+			break;
+		case "/delete":
+			deletarContato(request, response);
+			break;
+		default:
 			response.sendRedirect("index.html");
+			break;
 		}
 	}
 
@@ -79,6 +94,13 @@ public class Controller extends HttpServlet {
 		contato.setTelefone(request.getParameter("telefone"));
 		contato.setEmail(request.getParameter("email"));
 		dao.alterarContato(contato);
+		response.sendRedirect("main");
+	}
+
+	protected void deletarContato(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		contato.setIdcontato(request.getParameter("idcontato"));
+		dao.excluirContato(contato);
 		response.sendRedirect("main");
 	}
 
